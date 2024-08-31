@@ -6,7 +6,7 @@ import tasksReducer from './slices/tasksSlice';
 // });
 
 export const store = configureStore({
-  reducer: tasksReducer,
+  reducer:{ tasks: tasksReducer},
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
 //   .concat(userApi.middleware, mailApi.middleware, authApi.middleware, storeApi.middleware),
