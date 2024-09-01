@@ -1,20 +1,15 @@
 import { useState } from "react";
-import { Button, View, StyleSheet, TextInput } from "react-native"
-import {useNavigation} from '@react-navigation/native';
+import { View, StyleSheet, TextInput } from "react-native"
+import GeneralButton from "./components/GeneralButton";
 const AddTodo = () => {
-    const navigator = useNavigation();
     const [value,setValue] = useState('');
-
     
     return <View style = {styles.container}>
         <View style = {styles.spacing}>
-        <View>
-        <TextInput placeholder = 'Type here: ' onChangeText={newText => setValue(newText)} value={value}/>
-        {/* <Button title='add todo' onPress={addElem}/> */}
-        </View>
-        <View>
-            <Button title = 'back to list' onPress = {() => navigator.navigate('Home')}/>
-            {/* <Button title = 'add task ' onPress = {addTask}/> */}
+        <TextInput style = {{fontSize:20, alignSelf:'center'}}placeholder = 'Clear your mind: ' onChangeText={newText => setValue(newText)} value={value} />
+        <View style = {{marginTop:'auto'}}>
+            <GeneralButton name = 'Add Task' value = {value} onClick={() => setValue("")}/>
+            <GeneralButton name = 'Go Back'/>
         </View>
         </View>
         </View>
@@ -29,6 +24,7 @@ const styles = StyleSheet.create({
       padding: 16,
     },
     spacing: {
-        marginTop:'40%'
+        marginTop:'30%',
+        height:'90%'
     }
   });
