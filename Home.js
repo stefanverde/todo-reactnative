@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import {  useSelector } from "react-redux";
 import PressableAdd from "./components/PressableAdd";
 import GeneralButton from "./components/GeneralButton";
@@ -6,7 +6,7 @@ import GeneralButton from "./components/GeneralButton";
 const Home = () => {
   const taskList = useSelector((state) => state.tasks.taskList);
 
-    return <View style={MainPage.global}>
+    return <SafeAreaView style={MainPage.safeArea}>
       <PressableAdd/>
       <View style = {MainPage.listContainer}>
         <Text style = {MainPage.header}>Your things to be done: </Text>
@@ -20,7 +20,7 @@ const Home = () => {
       </View>
         
 
-    </View>
+    </SafeAreaView>
 }
 
 
@@ -28,13 +28,16 @@ export default Home;
 
 
 const MainPage = StyleSheet.create({
-  global:{
-    padding: 25,
+  safeArea:{
+    flex:1,
   },
   item: {
     padding: 10,
     fontSize: 15,
-    alignSelf:'center'
+    alignSelf:'center',
+    borderWidth:1,
+    borderRadius:8,
+    marginTop:5
   },
   header: {
     padding:5,
